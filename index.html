@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fluy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="auth">
+  <h1>Fluy</h1>
+
+  <input id="authUser" placeholder="Usuário">
+  <input id="authPass" type="password" placeholder="Senha">
+
+  <button onclick="register()">Criar Conta</button>
+  <button onclick="login()">Entrar</button>
+</div>
+
+<div id="app" class="hidden">
+
+  <header>
+    <h2>💸 Fluy</h2>
+
+    <select id="monthFilter" onchange="renderAll()"></select>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <section class="card">
+    <h3>Saldo Disponível</h3>
+    <p id="balance">R$ 0,00</p>
+  </section>
+
+  <section class="card">
+    <h3>Limite de Gastos Mensais</h3>
+    <input type="number" id="limitInput" placeholder="Definir limite">
+    <button onclick="saveLimit()">Salvar Limite</button>
+    <div class="bar">
+      <div id="limitBar"></div>
+    </div>
+    <p id="limitText"></p>
+  </section>
+
+  <section class="card">
+    <h3>Adicionar Receita</h3>
+    <input id="incomeValue" type="number" placeholder="Valor">
+    <button onclick="addIncome()">Adicionar</button>
+    <ul id="incomeList"></ul>
+  </section>
+
+  <section class="card">
+    <h3>Adicionar Despesa</h3>
+    <input id="expenseValue" type="number" placeholder="Valor">
+
+    <select id="expenseCategory">
+      <option>Alimentação</option>
+      <option>Moradia</option>
+      <option>Transporte</option>
+      <option>Lazer</option>
+      <option>Outros</option>
+    </select>
+
+    <button onclick="addExpense()">Adicionar</button>
+    <ul id="expenseList"></ul>
+  </section>
+
+  <section class="card">
+    <h3>Gastos por Categoria</h3>
+    <ul id="categoryValues"></ul>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
